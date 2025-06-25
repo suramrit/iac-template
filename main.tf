@@ -2,7 +2,7 @@ provider "aws" {
   region = "us-west-2"
 }
 
-resource "aws_s3_bucket" "governance-test" {
+resource "aws_s3_bucket" "governance-test-2" {
   bucket = "governance-test"
 }
 
