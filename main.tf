@@ -12,6 +12,14 @@ variable "custom_input" {
   })
 }
 
+variable "my_json_input" {
+  type = string
+}
+
+locals {
+  custom_input_as_json = jsondecode(var.my_json_input)
+}
+
 
 resource "aws_s3_bucket" "governance-test" {
   bucket = "governance-test"
