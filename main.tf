@@ -2,6 +2,17 @@ provider "aws" {
   region = "us-east-1"
 }
 
+variable "custom_input" {
+  description = "Nested config blob"
+  type = object({
+    A = object({
+      B = string
+      C = string
+    })
+  })
+}
+
+
 resource "aws_s3_bucket" "governance-test" {
   bucket = "governance-test"
 }
