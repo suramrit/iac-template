@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 variable "custom_input" {
-  description = "Nested config blob"
+  description = "Nested config"
   type = object({
     A = object({
       B = string
