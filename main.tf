@@ -2,6 +2,25 @@ provider "aws" {
   region = "us-west-2"
 }
 
+variable "custom_input" {
+  description = "Nested config"
+  type = object({
+    A = object({
+      B = string
+      C = string
+    })
+  })
+}
+
+variable "my_json_input" {
+  type = string
+}
+
+locals {
+  custom_input_as_json = jsondecode(var.my_json_input)
+}
+
+
 resource "aws_s3_bucket" "governance-test" {
   bucket = "governance-test"
 }
